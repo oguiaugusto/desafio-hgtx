@@ -16,5 +16,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "@typescript-eslint/lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+        "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }]
     }
 }
