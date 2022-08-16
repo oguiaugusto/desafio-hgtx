@@ -1,14 +1,16 @@
 import { IUserRepository } from '../interfaces/UserRepository';
 import User from '../../../database/models/user';
-import { IUser, IUserDTO } from '../interfaces/User';
+import { IUser, IUserDTO, IUserPublic } from '../interfaces/User';
 
 class SequelizeUserRepository implements IUserRepository {
   constructor(private client: typeof User = User) {
     this.client = client;
   }
 
-  public findAll = async (): Promise<IUser[]> => {
-    const users = await this.client.findAll();
+  public findAll = async (): Promise<IUserPublic[]> => {
+    const users = await this.client.findAll({
+      attributes: { exclude: ['password', 'lastUpdate'] },
+    });
     return users;
   };
 

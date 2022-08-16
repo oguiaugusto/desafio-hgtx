@@ -1,8 +1,8 @@
-import { IUser, IUserDTO } from './User';
+import { IUser, IUserDTO, IUserPublic } from './User';
 
 export interface IUserRepository {
-  findAll: () => Promise<IUser[]>;
-  findById: (id: number) => Promise<IUser | null>;
+  findAll: () => Promise<IUserPublic[]>;
+  findById: (id: number) => Promise<IUserPublic | null>;
   create: (user: IUserDTO) => Promise<IUser | null>;
   update: (id: number, user: Partial<IUserDTO>) => Promise<IUser | null>;
   delete: (id: number) => Promise<true | null>;

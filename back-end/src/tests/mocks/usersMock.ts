@@ -31,15 +31,23 @@ const usersMock = [
   }
 ]
 
-const userToken: IUserPublic = {
-  id: usersMock[0].id,
-  name: usersMock[0].name,
-  email: usersMock[0].email,
-  status: usersMock[0].status,
-}
+const usersPublicMock: IUserPublic[] = [
+  {
+    id: usersMock[0].id,
+    name: usersMock[0].name,
+    email: usersMock[0].email,
+    status: usersMock[0].status,
+  },
+  {
+    id: usersMock[1].id,
+    name: usersMock[1].name,
+    email: usersMock[1].email,
+    status: usersMock[1].status,
+  }
+]
 
 export {
   usersMockDTO,
   usersMock,
-  userToken,
+  usersPublicMock,
 }

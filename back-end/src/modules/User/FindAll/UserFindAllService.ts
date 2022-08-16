@@ -1,8 +1,8 @@
-import { IUser } from '../interfaces/User';
+import { IUserPublic } from '../interfaces/User';
 import { IUserRepository } from '../interfaces/UserRepository';
 
 export interface IUserFindAllService {
-  handle(): Promise<IUser[]>;
+  handle(): Promise<IUserPublic[]>;
 }
 
 class UserFindAllService implements IUserFindAllService {
