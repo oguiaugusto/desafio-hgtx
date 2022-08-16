@@ -51,17 +51,22 @@ describe('sequelize user repository methods', () => {
       expect(user).to.be.null;
     });
 
+    it('create should return null', async () => {
+      const user = await repository.create(usersMock[0]);
+      expect(user).to.be.null;
+    });
+
     it('update should return null', async () => {
-      sinon.stub(failModelMock, 'findByPk').onFirstCall().resolves(failModelMock as unknown as User);
+      sinon.stub(failModelMock, 'findByPk').onFirstCall().resolves(null);
 
       const user = await repository.update(123, { name: 'John Doe' });
       expect(user).to.be.null;
     });
 
-    it('update should return null', async () => {
-      sinon.stub(failModelMock, 'findByPk').onFirstCall().resolves(failModelMock as unknown as User);
+    it('delete should return null', async () => {
+      sinon.stub(failModelMock, 'findByPk').onFirstCall().resolves(null);
 
-      const user = await repository.update(1, { name: 'John Doe' });
+      const user = await repository.delete(1);
       expect(user).to.be.null;
     });
   });
