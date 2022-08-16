@@ -3,7 +3,7 @@ import User from '../../../database/models/user';
 import { IUser, IUserDTO } from '../interfaces/User';
 
 class SequelizeUserRepository implements IUserRepository {
-  constructor(private client: typeof User) {
+  constructor(private client: typeof User = User) {
     this.client = client;
   }
 
@@ -17,7 +17,10 @@ class SequelizeUserRepository implements IUserRepository {
     return user;
   };
 
-  public create = async (user: IUserDTO): Promise<IUser> => {
+  public create = async (user: IUserDTO): Promise<IUser | null> => {
+    const existingUser = await this.client.findOne({ where: { email: user.email } });
+    if (existingUser) return null;
+
     const newUser = await this.client.create({ ...user, status: 'Pendente' });
     return newUser;
   };
