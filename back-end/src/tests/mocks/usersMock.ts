@@ -1,4 +1,5 @@
-import * as md5 from 'md5'
+import * as md5 from 'md5';
+import { IUserPublic, IUserToken } from '../../modules/User/interfaces/User';
 
 const usersMockDTO = [
   {
@@ -30,7 +31,15 @@ const usersMock = [
   }
 ]
 
+const userToken: IUserToken = {
+  id: usersMock[0].id,
+  name: usersMock[0].name,
+  email: usersMock[0].email,
+  status: usersMock[0].status,
+}
+
 export {
   usersMockDTO,
   usersMock,
+  userToken,
 }
