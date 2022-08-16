@@ -24,7 +24,7 @@ describe('endpoint POST /users', () => {
       sinon.stub(sequelizeUserRepository, 'create').resolves(usersMock[0]);
       const response = await request(usersMockDTO[0]);
 
-      expect(response.status).to.be.equal(StatusCodes.OK);
+      expect(response.status).to.be.equal(StatusCodes.CREATED);
       expect(response.body).to.have.property('token');
     });
   });

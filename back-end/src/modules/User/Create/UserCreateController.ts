@@ -19,7 +19,7 @@ class UserCreateController {
       status: user.status,
     });
 
-    res.status(StatusCodes.OK).json({ token });
+    res.status(StatusCodes.CREATED).json({ token });
   };
 }
 
