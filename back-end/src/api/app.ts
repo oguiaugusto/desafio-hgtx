@@ -1,10 +1,13 @@
+import 'express-async-errors';
 import * as express from 'express';
 import * as cors from 'cors';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import ErrorMiddleware from '../middlewares/ErrorMiddleware';
+import userRouter from '../routes/user';
 
 class App {
-  private app: express.Express;
+  public app: express.Express;
 
   constructor() {
     this.app = express();
@@ -29,6 +32,9 @@ class App {
     this.app.get('/', (_req: Request, res: Response) => (
       res.status(StatusCodes.OK).json({ message: 'Online!' })
     ));
+
+    this.app.use('/users', userRouter);
+    this.app.use(ErrorMiddleware.handle);
   }
 
   public start(PORT: string | number): void {
@@ -36,5 +42,5 @@ class App {
   }
 }
 
-export { App };
+export const { app } = new App();
 export default new App();
