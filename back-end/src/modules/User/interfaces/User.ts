@@ -12,7 +12,7 @@ export interface IUser extends IUserDTO {
   lastUpdate: Date;
 }
 
-export interface IUserToken {
+export interface IUserPublic {
   id: number;
   name: string;
   email: string;
@@ -20,9 +20,6 @@ export interface IUserToken {
 }
 
 export interface IUserDecoded extends JwtPayload {
-  user: IUserToken;
-}
-
-export interface IUserPublic extends IUserToken {
+  user: IUserPublic;
   token: string;
 }

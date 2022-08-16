@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import * as jwt from 'jsonwebtoken';
-import { IUserDecoded, IUserToken } from '../modules/User/interfaces/User';
+import { IUserDecoded, IUserPublic } from '../modules/User/interfaces/User';
 
 class JWTUser {
   constructor(
@@ -11,7 +11,7 @@ class JWTUser {
     this.options = options;
   }
 
-  public generate(data: IUserToken) {
+  public generate(data: IUserPublic) {
     return jwt.sign(data, this.secret, this.options);
   } 
 
