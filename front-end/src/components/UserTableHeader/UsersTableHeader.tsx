@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import CachedIcon from '@mui/icons-material/Cached';
 import TuneIcon from '@mui/icons-material/Tune';
 import AddIcon from '@mui/icons-material/Add';
 import { Button, IconButton, TextField } from '@mui/material';
-import StyledUsersTableHeader from './styled/StyledUsersTableHeader';
+import StyledUsersTableHeader from '../styled/StyledUsersTableHeader';
+import NewUserModal from './NewUserModal';
 
 const UsersTableHeader: React.FC = () => {
-  const handleNewUser = () => {
-    console.log('handleNewUser not implemented');
-  };
+  const [newUserModalOpened, setNewUserModalOpened] = useState(false);
+
   const searchUsers = () => {
     console.log('searchUsers not implemented');
   };
@@ -26,9 +26,8 @@ const UsersTableHeader: React.FC = () => {
         variant="contained"
         size="large"
         className="new-user-button"
-        // sx={ { paddingY: '14px' } }
         startIcon={ <AddIcon sx={ { transform: 'scale(1.2)' } } /> }
-        onClick={ handleNewUser }
+        onClick={ () => setNewUserModalOpened(true) }
       >
         Novo
       </Button>
@@ -59,6 +58,10 @@ const UsersTableHeader: React.FC = () => {
       >
         <CachedIcon />
       </Button>
+      <NewUserModal
+        opened={ newUserModalOpened }
+        handleClose={ () => setNewUserModalOpened(false) }
+      />
     </StyledUsersTableHeader>
   );
 };
