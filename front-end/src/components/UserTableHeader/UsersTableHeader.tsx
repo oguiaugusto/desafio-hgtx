@@ -23,6 +23,7 @@ const UsersTableHeader: React.FC = () => {
   return (
     <StyledUsersTableHeader className="users-table-header" component="div">
       <Button
+        data-testid="new-user-button"
         variant="contained"
         size="large"
         className="new-user-button"
@@ -32,6 +33,7 @@ const UsersTableHeader: React.FC = () => {
         Novo
       </Button>
       <TextField
+        data-testid="search-input"
         className="search-input"
         autoComplete="off"
         placeholder="Pesquisar Usuários"
@@ -51,6 +53,7 @@ const UsersTableHeader: React.FC = () => {
         } }
       />
       <Button
+        data-testid="refresh-button"
         className="refresh-button"
         variant="contained"
         size="small"

@@ -45,7 +45,7 @@ const NewUserModal: React.FC<NewUserModalProps> = ({ opened, handleClose }) => {
       aria-labelledby="New User Modal"
       aria-describedby="Create a new user"
     >
-      <Box sx={ modalBoxStyle }>
+      <Box data-testid="new-user-modal" sx={ modalBoxStyle }>
         <Typography variant="h6" className="modal-title" sx={ { mb: 2 } }>
           Criar Usuário
         </Typography>
