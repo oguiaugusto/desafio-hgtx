@@ -6,6 +6,7 @@ const StyledUsersTableHeader = styled(Box)({
   gridTemplateColumns: '20% 66% 14%',
   alignItems: 'center',
   width: '60%',
+  minWidth: '700px',
   '& .new-user-button': {
     justifySelf: 'center',
     paddingY: '14px',
