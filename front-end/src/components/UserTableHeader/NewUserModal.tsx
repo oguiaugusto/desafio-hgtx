@@ -28,6 +28,7 @@ const NewUserModal: React.FC<NewUserModalProps> = ({ opened, handleClose }) => {
       toast.success('Usuário criado com sucesso!');
       localStorage.setItem('token', response.token);
       handleClose();
+      window.location.reload();
     } else {
       toast.error(response.message);
     }
