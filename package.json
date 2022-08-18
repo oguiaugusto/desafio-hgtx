@@ -1,0 +1,13 @@
+{
+  "name": "desafio-hgtx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compose:up": "docker-compose up -d --build",
+    "compose:down": "docker-compose down"
+  },
+  "keywords": [],
+  "author": "Guilherme Augusto",
+  "license": "ISC"
+}
