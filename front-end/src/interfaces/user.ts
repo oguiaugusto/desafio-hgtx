@@ -7,3 +7,8 @@ export interface User {
 export interface UserRegister extends User {
   confirmPassword: string;
 }
+
+export interface UserPublic extends User {
+  id: number;
+  status: string;
+}
