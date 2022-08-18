@@ -2,7 +2,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Box, Button, IconButton, InputAdornment } from '@mui/material';
 import React, { ChangeEvent, Dispatch, useState } from 'react';
 import validations, { validateAll } from '../../helpers/validations';
-import { User } from '../../interfaces/user';
+import { UserRegister } from '../../interfaces/user';
 import { StyledInformationsTab } from '../styled/StyledNewUserModal';
 import InputEmail from './inputs/InputEmail';
 import InputName from './inputs/InputName';
@@ -12,7 +12,7 @@ interface InformationsTabProps {
   tabIndex: number;
   tabValue: number;
   handleClose: () => void;
-  handleCreate: (user: User) => Promise<void>;
+  handleCreate: (user: UserRegister) => Promise<void>;
 }
 
 const passwordVisibility = (
@@ -72,15 +72,22 @@ const InformationsTab: React.FC<InformationsTabProps> = (props) => {
         />
       </Box>
       <Box className="buttons">
-        <Button className="back-button" variant="text" size="large" onClick={ handleClose }>
+        <Button
+          data-testid="button-back"
+          className="back-button"
+          variant="text"
+          size="large"
+          onClick={ handleClose }
+        >
           Voltar
         </Button>
         <Button
-          className="back-button"
+          data-testid="button-create"
+          className="create-button"
           variant="contained"
           size="large"
           onClick={
-            () => handleCreate({ name: user.name, email: user.email, password: user.password })
+            () => handleCreate(user)
           }
           disabled={ isButtonDisabled }
         >

@@ -10,6 +10,7 @@ interface Props {
 
 const InputName: React.FC<Props> = ({ user, handleChange }) => (
   <TextField
+    data-testid="input-name"
     label="Nome *"
     name="name"
     helperText="Seu nome deve ter pelo menos 3 caracteres"

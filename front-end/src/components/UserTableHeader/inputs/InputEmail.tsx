@@ -10,6 +10,7 @@ interface Props {
 
 const InputEmail: React.FC<Props> = ({ user, handleChange }) => (
   <TextField
+    data-testid="input-email"
     label="E-mail *"
     name="email"
     helperText="Insira um email válido"

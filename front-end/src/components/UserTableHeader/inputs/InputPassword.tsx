@@ -16,9 +16,11 @@ const InputPassword: React.FC<Props> = (props) => {
 
   const label = name === 'password' ? 'Senha *' : 'Confirmar senha *';
   const helperText = name === 'password' ? 'Sua senha deve ter pelo menos 6 caracteres' : 'As senhas devem ser iguais';
+  const dataTestId = name === 'password' ? 'input-password' : 'input-confirm-password';
 
   return (
     <TextField
+      data-testid={ dataTestId }
       name={ name }
       label={ label }
       helperText={ helperText }
